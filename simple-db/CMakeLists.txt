@@ -10,4 +10,4 @@ set(SOURCES src/main.c src/map.c)
 include_directories(include)
 
 # 실행 파일 생성
-add_executable(simple-db ${SOURCES})
+add_executable(build/simple-db.out ${SOURCES})

@@ -1,0 +1,19 @@
+# CMake build directory
+/build/
+# CMake files
+CMakeCache.txt
+CMakeFiles/
+# Visual Studio files
+*.sln
+*.vcxproj
+*.vcxproj.filters
+# macOS specific files
+.DS_Store
+# Object files and executables
+*.o
+*.out
+# Log files
+*.log
+# Test results
+/test_results/
+.cache

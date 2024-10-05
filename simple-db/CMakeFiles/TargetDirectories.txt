@@ -1,3 +1,0 @@
-/Users/miniyus/Projects/miniyus/clang/simple-db/CMakeFiles/simple-db.dir
-/Users/miniyus/Projects/miniyus/clang/simple-db/CMakeFiles/edit_cache.dir
-/Users/miniyus/Projects/miniyus/clang/simple-db/CMakeFiles/rebuild_cache.dir
