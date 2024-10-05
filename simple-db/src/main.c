@@ -9,7 +9,10 @@
 
 Map *m;
 
-void find_all() { print_map(m); }
+void find_all() {
+  printf("find all...\n");
+  print_map(m);
+}
 
 void find_by_key_value(char *key, char *value) {
   Data *data = get_data(m, key, value);
@@ -26,7 +29,7 @@ void put(char *key, char *value) { put_data(m, key, value); }
 void rm(int id) { remove_data(m, id); }
 
 void help() {
-  printf("- h: help.\n");
+  printf("\n- h: help.\n");
   printf("- find: find data\n");
   printf("  - find all: find all data\n");
   printf("  - find %%s %%s: find key and value\n");
@@ -35,7 +38,6 @@ void help() {
   printf("- rm: remove data\n");
   printf("  - rm %%d: remove by id\n");
   printf("- q: quit.\n");
-  printf("Enter command: ");
 }
 
 int main() {
@@ -54,7 +56,7 @@ int main() {
   help();
 
   while (1) {
-    printf("Enter command: ");
+    printf("\nEnter command: ");
     fgets(command, MAX_COMMAND_SIZE, stdin);
     command[strcspn(command, "\n")] = 0; // 개행 문자 제거
 

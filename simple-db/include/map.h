@@ -2,7 +2,6 @@
 #define MAP_H
 
 // define constant
-#include <sys/wait.h>
 #define KEY_SIZE 50
 #define VALUE_SIZE 100
 #define DATA_SIZE 255
@@ -24,7 +23,7 @@ struct Node {
 
 // struct Map
 typedef struct {
-  int last;
+  int cnt;
   Node *nodes;
 } Map;
 

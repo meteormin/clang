@@ -6,9 +6,9 @@
 Map *init_map(Map *m) {
   int data_size = length_map(m);
 
-  printf("initialize Map...");
+  printf("initialize Map...\n");
 
-  m->last = 0;
+  m->cnt = 0;
   m->nodes = NULL;
 
   print_map(m);
@@ -16,10 +16,15 @@ Map *init_map(Map *m) {
   return m;
 }
 
-int length_map(Map *m) { return m->last + 1; }
+int length_map(Map *m) { return m->cnt; }
 
 void print_map(Map *m) {
   int data_size = length_map(m);
+
+  if (data_size == 0) {
+    printf("data is empty\n");
+    return;
+  }
 
   Node *n = m->nodes;
   for (int i = 0; i < data_size; i++) {
@@ -42,11 +47,10 @@ void print_data(Data datum) {
     return;
   }
 
-  printf("[Print Data]");
+  printf("[Data]\n");
   printf(" - id: %d\n", id);
   printf(" - key: %s\n", key);
   printf(" - value: %s\n", value);
-  printf("[End Print]");
 }
 
 void put_data(Map *m, char *key, char *value) {
@@ -57,14 +61,46 @@ void put_data(Map *m, char *key, char *value) {
     return;
   }
 
+  if (data_size == 0) {
+    Node *first_node = malloc(sizeof(Node));
+
+    strcpy(first_node->data.key, key);
+    strcpy(first_node->data.value, value);
+
+    first_node->next = NULL;
+
+    m->cnt++;
+
+    first_node->data.id = m->cnt;
+
+    printf("[Put Data]\n");
+    print_data(first_node->data);
+
+    m->nodes = first_node;
+
+    return;
+  }
+
   Node *n = m->nodes;
+
   for (int i = 0; i < data_size; i++) {
     if (n == NULL) {
       Node *new_node = malloc(sizeof(Node));
+
       strcpy(new_node->data.key, key);
       strcpy(new_node->data.value, value);
+
       new_node->next = NULL;
-      m->last++;
+
+      m->cnt++;
+
+      new_node->data.id = m->cnt;
+
+      printf("[Put Data]\n");
+      print_data(new_node->data);
+
+      n->next = new_node;
+
       break;
     }
 
@@ -83,14 +119,21 @@ void remove_data(Map *m, int id) {
   for (int i = 0; i < data_size; i++) {
     if (n->data.id == id) {
       remove_node = n;
+
       if (prev_node != NULL) {
         prev_node->next = remove_node->next;
       } else {
         m->nodes = NULL;
       }
+
       free(remove_node);
+
       remove_node = NULL;
+
       removed = 1;
+
+      m->cnt--;
+
       break;
     }
     prev_node = n;
