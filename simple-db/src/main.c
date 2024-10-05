@@ -1,16 +1,11 @@
 #include "map.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #define MAX_COMMAND_SIZE 100
 #define MAX_KEY_SIZE 50
 #define MAX_VALUE_SIZE 100
-
-// 데이터 저장 구조체 (필요에 따라 수정 가능)
-typedef struct {
-  char key[MAX_KEY_SIZE];
-  char value[MAX_VALUE_SIZE];
-} CMD;
 
 Map *m;
 
@@ -39,11 +34,14 @@ void help() {
   printf("  - put %%s %%s: put key and value\n");
   printf("- rm: remove data\n");
   printf("  - rm %%d: remove by id\n");
+  printf("- q: quit.\n");
   printf("Enter command: ");
 }
 
 int main() {
   printf("Simple-db.\n");
+
+  m = malloc(sizeof(Map));
 
   init_map(m);
 
