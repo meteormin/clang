@@ -1,14 +1,14 @@
 [
 {
   "directory": "/Users/miniyus/Projects/miniyus/clang/simple-db",
-  "command": "/Library/Developer/CommandLineTools/usr/bin/cc  -I/Users/miniyus/Projects/miniyus/clang/simple-db/include  -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -o CMakeFiles/simple-db.dir/src/main.c.o -c /Users/miniyus/Projects/miniyus/clang/simple-db/src/main.c",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/cc  -I/Users/miniyus/Projects/miniyus/clang/simple-db/include  -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -o CMakeFiles/simple-db.out.dir/src/main.c.o -c /Users/miniyus/Projects/miniyus/clang/simple-db/src/main.c",
   "file": "/Users/miniyus/Projects/miniyus/clang/simple-db/src/main.c",
-  "output": "CMakeFiles/simple-db.dir/src/main.c.o"
+  "output": "CMakeFiles/simple-db.out.dir/src/main.c.o"
 },
 {
   "directory": "/Users/miniyus/Projects/miniyus/clang/simple-db",
-  "command": "/Library/Developer/CommandLineTools/usr/bin/cc  -I/Users/miniyus/Projects/miniyus/clang/simple-db/include  -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -o CMakeFiles/simple-db.dir/src/map.c.o -c /Users/miniyus/Projects/miniyus/clang/simple-db/src/map.c",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/cc  -I/Users/miniyus/Projects/miniyus/clang/simple-db/include  -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -o CMakeFiles/simple-db.out.dir/src/map.c.o -c /Users/miniyus/Projects/miniyus/clang/simple-db/src/map.c",
   "file": "/Users/miniyus/Projects/miniyus/clang/simple-db/src/map.c",
-  "output": "CMakeFiles/simple-db.dir/src/map.c.o"
+  "output": "CMakeFiles/simple-db.out.dir/src/map.c.o"
 }
 ]
