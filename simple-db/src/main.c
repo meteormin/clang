@@ -1,6 +1,5 @@
 #include "map.h"
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 #define MAX_COMMAND_SIZE 100
