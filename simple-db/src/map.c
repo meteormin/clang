@@ -43,17 +43,14 @@ void print_data(Data datum) {
   char *value = datum.value;
 
   if (id == 0) {
-    printf("[Empty Data]");
+    printf("[Empty Data]\n");
     return;
   }
 
-  printf("[Data]\n");
-  printf(" - id: %d\n", id);
-  printf(" - key: %s\n", key);
-  printf(" - value: %s\n", value);
+  printf("[%d] %s, %s\n", id, key, value);
 }
 
-void put_data(Map *m, char *key, char *value) {
+void put_data(Map *m, int id, char *key, char *value) {
   int data_size = length_map(m);
 
   if (data_size >= DATA_SIZE) {
@@ -64,14 +61,13 @@ void put_data(Map *m, char *key, char *value) {
   if (data_size == 0) {
     Node *first_node = malloc(sizeof(Node));
 
+    first_node->data.id = id;
     strcpy(first_node->data.key, key);
     strcpy(first_node->data.value, value);
 
     first_node->next = NULL;
 
     m->cnt++;
-
-    first_node->data.id = m->cnt;
 
     printf("[Put Data]\n");
     print_data(first_node->data);
@@ -82,11 +78,11 @@ void put_data(Map *m, char *key, char *value) {
   }
 
   Node *n = m->nodes;
-
-  for (int i = 0; i < data_size; i++) {
-    if (n == NULL) {
+  while (n != NULL) {
+    if (n->next == NULL) {
       Node *new_node = malloc(sizeof(Node));
 
+      new_node->data.id = id;
       strcpy(new_node->data.key, key);
       strcpy(new_node->data.value, value);
 
@@ -94,12 +90,11 @@ void put_data(Map *m, char *key, char *value) {
 
       m->cnt++;
 
-      new_node->data.id = m->cnt;
-
       printf("[Put Data]\n");
       print_data(new_node->data);
 
       n->next = new_node;
+      n = new_node;
 
       break;
     }
@@ -146,20 +141,27 @@ void remove_data(Map *m, int id) {
   }
 }
 
-Data *get_data(Map *m, char *key, char *value) {
+Map *get_data(Map *m, char *key, char *value) {
   int data_size = length_map(m);
 
-  Data *data = (Data *)malloc(DATA_SIZE * sizeof(Data));
-  Node *n = m->nodes;
+  Map *m2 = malloc(sizeof(Map));
+  init_map(m2);
+
   int j = 0;
+
+  Node *n = m->nodes;
+  Node *n2 = m2->nodes;
   for (int i = 0; i < data_size; i++) {
-    if (n->data.key == key && n->data.value == value) {
-      data[j].id = n->data.id;
-      strcpy(data[j].key, n->data.key);
-      strcpy(data[j].value, n->data.value);
+    if (strcmp(n->data.key, key) == 0 && strcmp(n->data.value, value) == 0) {
+      printf("find match...\n");
+      put_data(m2, n->data.id, n->data.key, n->data.value);
       j++;
     }
+
+    n = n->next;
   }
 
-  return data;
+  printf("found %d\n", j);
+
+  return m2;
 }

@@ -42,7 +42,7 @@ void print_map(Map *m);
 void print_data(Data data);
 
 // put data
-void put_data(Map *m, char *key, char *value);
+void put_data(Map *m, int id, char *key, char *value);
 
 // remove data
 void remove_data(Map *m, int id);
@@ -50,6 +50,6 @@ void remove_data(Map *m, int id);
 Data get_data_by_id(Map *m, int id);
 
 // get data by key and value.
-Data *get_data(Map *m, char *key, char *value);
+Map *get_data(Map *m, char *key, char *value);
 
 #endif

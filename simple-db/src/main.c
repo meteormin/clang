@@ -15,16 +15,14 @@ void find_all() {
 }
 
 void find_by_key_value(char *key, char *value) {
-  Data *data = get_data(m, key, value);
-  int find_data_size = sizeof(*data);
-  int find_data_cnt = find_data_size / sizeof(Data);
-
-  for (int i = 0; i < find_data_cnt; i++) {
-    print_data(data[i]);
-  }
+  Map *m2 = get_data(m, key, value);
+  print_map(m2);
 }
 
-void put(char *key, char *value) { put_data(m, key, value); }
+void put(char *key, char *value) {
+  int next_id = length_map(m) + 1;
+  put_data(m, next_id, key, value);
+}
 
 void rm(int id) { remove_data(m, id); }
 
