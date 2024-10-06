@@ -1,0 +1,3 @@
+/Users/miniyus/Projects/miniyus/clang/simple-http/build/CMakeFiles/simple-http.out.dir
+/Users/miniyus/Projects/miniyus/clang/simple-http/build/CMakeFiles/edit_cache.dir
+/Users/miniyus/Projects/miniyus/clang/simple-http/build/CMakeFiles/rebuild_cache.dir
