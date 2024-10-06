@@ -1,4 +1,4 @@
-#include "map.h"
+#include "data.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -164,4 +164,63 @@ Map *get_data(Map *m, char *key, char *value) {
   printf("found %d\n", j);
 
   return m2;
+}
+
+void save_list(const char *filename, Map *m) {
+  FILE *file = fopen(filename, "wb");
+  if (file == NULL) {
+    perror("Failed to open file");
+    return;
+  }
+
+  Node *current = m->nodes;
+  while (current != NULL) {
+    fwrite(&(current->data), sizeof(Data), 1, file);
+    current = current->next;
+  }
+
+  fclose(file);
+}
+
+Map *load_list(const char *filename) {
+  Map *m = malloc(sizeof(Map));
+  init_map(m);
+
+  FILE *file = fopen(filename, "rb");
+  printf("open file");
+
+  if (file == NULL) {
+    perror("Failed to open file");
+    return m;
+  }
+
+  Node *tail = NULL;
+
+  Data temp_data;
+  while (fread(&temp_data, sizeof(Data), 1, file) == 1) {
+    Node *new_node = (Node *)malloc(sizeof(Node));
+    if (new_node == NULL) {
+      perror("Failed to allocate memory");
+      fclose(file);
+      return NULL;
+    }
+
+    new_node->data = temp_data;
+    new_node->next = NULL;
+
+    if (m->nodes == NULL) {
+      m->nodes = new_node;
+    } else {
+      tail->next = new_node;
+    }
+
+    m->cnt++;
+    printf("load %d", m->cnt);
+
+    tail = new_node;
+  }
+
+  fclose(file);
+
+  return m;
 }

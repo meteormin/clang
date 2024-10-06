@@ -1,11 +1,11 @@
-#include "map.h"
+#include "data.h"
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 #define MAX_COMMAND_SIZE 100
 #define MAX_KEY_SIZE 50
 #define MAX_VALUE_SIZE 100
+#define FILE_NAME "simple-db.db"
 
 Map *m;
 
@@ -26,6 +26,8 @@ void put(char *key, char *value) {
 
 void rm(int id) { remove_data(m, id); }
 
+void commit(const char *filename, Map *m) { save_list(filename, m); }
+
 void help() {
   printf("\n- h: help.\n");
   printf("- find: find data\n");
@@ -35,15 +37,14 @@ void help() {
   printf("  - put %%s %%s: put key and value\n");
   printf("- rm: remove data\n");
   printf("  - rm %%d: remove by id\n");
+  printf("- commit: commit data(save file).\n");
   printf("- q: quit.\n");
 }
 
 int main() {
   printf("Simple-db.\n");
 
-  m = malloc(sizeof(Map));
-
-  init_map(m);
+  m = load_list(FILE_NAME);
 
   char command[MAX_COMMAND_SIZE];
 
@@ -68,9 +69,14 @@ int main() {
       put(key, value);
     } else if (sscanf(command, "rm %d", &id) == 1) {
       rm(id);
+    } else if (strcmp(command, "commit") == 0) {
+      printf("commit:\n");
+      commit(FILE_NAME, m);
     } else {
+      printf("help:\n");
       help();
     }
   }
+
   return 0;
 }

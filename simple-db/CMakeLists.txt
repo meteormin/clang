@@ -6,7 +6,7 @@ project(SimpleDB)
 # 소스 파일
 set(SOURCES 
   src/main.c 
-  src/map.c
+  src/data.c 
 )
 
 # include 디렉토리 추가

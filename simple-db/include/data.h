@@ -52,4 +52,8 @@ Data get_data_by_id(Map *m, int id);
 // get data by key and value.
 Map *get_data(Map *m, char *key, char *value);
 
+void save_list(const char *filename, Map *m);
+
+Map *load_list(const char *filename);
+
 #endif
