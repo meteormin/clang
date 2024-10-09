@@ -4,7 +4,8 @@
 >> - [x] simple-http
 >> - [x] multitask
 >> - [x] maze
->> - [ ] memory-manager
+>> - [x] memory-manager
+>> - [ ] chatsock
 >> - [ ] spreadsheet-cli
 
 ### 1. 간단한 데이터베이스 시스템
