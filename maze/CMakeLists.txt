@@ -6,9 +6,7 @@ project(Maze.txt)
 # 소스 파일
 set(SOURCES 
   src/main.c 
-  src/proc.c
-  src/queue.c
-  src/scheduler.c
+  src/maze.c
 )
 
 # include 디렉토리 추가
