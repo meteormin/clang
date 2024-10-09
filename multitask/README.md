@@ -1,6 +1,8 @@
 ## Multi task simulator
 
-## build and run
+여러 프로세스의 CPU 실행 순서를 관리하는 운영 체제의 스케줄링 알고리즘을 구현합니다. 라운드 로빈, 우선순위 기반 스케줄링 등의 알고리즘을 통해 각 프로세스의 실행 시간을 할당하고, 대기 큐에 프로세스를 관리합니다.
+
+## Build and run
 ```sh
 $ mkdir -p build
 $ cd build
