@@ -3,7 +3,7 @@
 >> - [x] simple-db
 >> - [x] simple-http
 >> - [x] multitask
->> - [ ] maze
+>> - [x] maze
 >> - [ ] memory-manager
 >> - [ ] spreadsheet-cli
 
