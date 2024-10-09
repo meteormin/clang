@@ -1,0 +1,26 @@
+[
+{
+  "directory": "/Users/miniyus/Projects/miniyus/clang/multitask/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/cc  -I/Users/miniyus/Projects/miniyus/clang/multitask/include  -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -o CMakeFiles/mt-scheduler.out.dir/src/main.c.o -c /Users/miniyus/Projects/miniyus/clang/multitask/src/main.c",
+  "file": "/Users/miniyus/Projects/miniyus/clang/multitask/src/main.c",
+  "output": "CMakeFiles/mt-scheduler.out.dir/src/main.c.o"
+},
+{
+  "directory": "/Users/miniyus/Projects/miniyus/clang/multitask/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/cc  -I/Users/miniyus/Projects/miniyus/clang/multitask/include  -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -o CMakeFiles/mt-scheduler.out.dir/src/proc.c.o -c /Users/miniyus/Projects/miniyus/clang/multitask/src/proc.c",
+  "file": "/Users/miniyus/Projects/miniyus/clang/multitask/src/proc.c",
+  "output": "CMakeFiles/mt-scheduler.out.dir/src/proc.c.o"
+},
+{
+  "directory": "/Users/miniyus/Projects/miniyus/clang/multitask/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/cc  -I/Users/miniyus/Projects/miniyus/clang/multitask/include  -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -o CMakeFiles/mt-scheduler.out.dir/src/queue.c.o -c /Users/miniyus/Projects/miniyus/clang/multitask/src/queue.c",
+  "file": "/Users/miniyus/Projects/miniyus/clang/multitask/src/queue.c",
+  "output": "CMakeFiles/mt-scheduler.out.dir/src/queue.c.o"
+},
+{
+  "directory": "/Users/miniyus/Projects/miniyus/clang/multitask/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/cc  -I/Users/miniyus/Projects/miniyus/clang/multitask/include  -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -o CMakeFiles/mt-scheduler.out.dir/src/scheduler.c.o -c /Users/miniyus/Projects/miniyus/clang/multitask/src/scheduler.c",
+  "file": "/Users/miniyus/Projects/miniyus/clang/multitask/src/scheduler.c",
+  "output": "CMakeFiles/mt-scheduler.out.dir/src/scheduler.c.o"
+}
+]

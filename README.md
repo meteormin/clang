@@ -2,7 +2,7 @@
 > TODO
 >> - [x] simple-db
 >> - [x] simple-http
->> - [ ] multitask
+>> - [x] multitask
 >> - [ ] maze
 >> - [ ] memory-manager
 >> - [ ] spreadsheet-cli
