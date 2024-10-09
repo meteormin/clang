@@ -1,3 +1,0 @@
-/Users/miniyus/Projects/miniyus/clang/multitask/build/CMakeFiles/mt-scheduler.out.dir
-/Users/miniyus/Projects/miniyus/clang/multitask/build/CMakeFiles/edit_cache.dir
-/Users/miniyus/Projects/miniyus/clang/multitask/build/CMakeFiles/rebuild_cache.dir
