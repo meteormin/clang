@@ -11,7 +11,7 @@ $ make
 $ ./mt-scheduler.out
 ```
 
-### Usage
+## Usage
 ```sh
 Enter time slice for Round Robin scheduling: 4
 Enter the number of processes to simulate: 3
