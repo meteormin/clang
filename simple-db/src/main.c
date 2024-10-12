@@ -20,7 +20,7 @@ void find_by_key_value(char *key, char *value) {
 }
 
 void put(char *key, char *value) {
-  int next_id = length_map(m) + 1;
+  int next_id = ++m->idx;
   put_data(m, next_id, key, value);
 }
 
@@ -70,7 +70,6 @@ int main() {
     } else if (sscanf(command, "rm %d", &id) == 1) {
       rm(id);
     } else if (strcmp(command, "commit") == 0) {
-      printf("commit:\n");
       commit(FILE_NAME, m);
     } else {
       printf("help:\n");

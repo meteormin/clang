@@ -9,6 +9,7 @@ Map *init_map(Map *m) {
   printf("initialize Map...\n");
 
   m->cnt = 0;
+  m->idx = 0;
   m->nodes = NULL;
 
   print_map(m);
@@ -107,23 +108,21 @@ void remove_data(Map *m, int id) {
 
   int data_size = length_map(m);
 
-  Node *remove_node;
-  Node *prev_node;
+  Node *remove_node = NULL;
+  Node *prev_node = NULL;
   Node *n = m->nodes;
   int removed = 0;
   for (int i = 0; i < data_size; i++) {
-    if (n->data.id == id) {
+    if (n != NULL && n->data.id == id) {
       remove_node = n;
 
-      if (prev_node != NULL) {
-        prev_node->next = remove_node->next;
+      if (prev_node == NULL) {
+        m->nodes = remove_node->next;
       } else {
-        m->nodes = NULL;
+        prev_node->next = remove_node->next;
       }
 
       free(remove_node);
-
-      remove_node = NULL;
 
       removed = 1;
 
@@ -132,6 +131,7 @@ void remove_data(Map *m, int id) {
       break;
     }
     prev_node = n;
+    n = n->next;
   }
 
   if (removed) {
@@ -173,6 +173,10 @@ void save_list(const char *filename, Map *m) {
     return;
   }
 
+  // Map의 메타 정보 저장 (cnt와 idx)
+  fwrite(&m->cnt, sizeof(int), 1, file);
+  fwrite(&m->idx, sizeof(int), 1, file);
+
   Node *current = m->nodes;
   while (current != NULL) {
     fwrite(&(current->data), sizeof(Data), 1, file);
@@ -180,6 +184,8 @@ void save_list(const char *filename, Map *m) {
   }
 
   fclose(file);
+
+  printf("save file: %s\n", filename);
 }
 
 Map *load_list(const char *filename) {
@@ -194,8 +200,10 @@ Map *load_list(const char *filename) {
     return m;
   }
 
-  Node *tail = NULL;
+  fread(&m->cnt, sizeof(int), 1, file);
+  fread(&m->idx, sizeof(int), 1, file);
 
+  Node *tail = NULL;
   Data temp_data;
   while (fread(&temp_data, sizeof(Data), 1, file) == 1) {
     Node *new_node = (Node *)malloc(sizeof(Node));

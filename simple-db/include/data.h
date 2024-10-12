@@ -24,6 +24,7 @@ struct Node {
 // struct Map
 typedef struct {
   int cnt;
+  int idx;
   Node *nodes;
 } Map;
 
