@@ -1,4 +1,12 @@
 ## IDEA
+> TODO
+>> - [x] simple-db
+>> - [x] simple-http
+>> - [x] multitask
+>> - [x] maze
+>> - [x] memory-manager
+>> - [x] chatsock
+>> - [x] spreadsheet-cli
 
 ### 1. 간단한 데이터베이스 시스템
 
