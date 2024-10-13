@@ -6,7 +6,7 @@
 >> - [x] maze
 >> - [x] memory-manager
 >> - [x] chatsock
->> - [ ] spreadsheet-cli
+>> - [x] spreadsheet-cli
 
 ### 1. 간단한 데이터베이스 시스템
 
